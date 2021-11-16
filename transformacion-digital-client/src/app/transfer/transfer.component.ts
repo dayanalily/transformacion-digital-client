@@ -42,34 +42,31 @@ export class TransferComponent implements OnInit {
 
   numberFormat() {
 
-    // let output 
+    let output;
     let input = this.formTransfer.value.amount
-    let formatedOutputValue = this.cp.transform(parseInt(input));
-    this.formTransfer.controls.amount.setValue(formatedOutputValue);
-     console.log("this.formTransfer.value.amount", this.formTransfer.value.amount);
-
-    // console.log("input", input);
+  
+    console.log("input", input);
     
-    // if (input === undefined) return ''
-    // input = input.toString().replace(/[^0-9\,]/g, '')
-    // if (input !== '') {
-    //   input = input.toString().replace(/[,]/, '.')
-    //   input = parseFloat(input)
-    //   let aux_array = input.toString().split('.')
-    //   aux_array[0] = aux_array[0]
-    //     .toString()
-    //     .replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-    //    output =
-    //     typeof aux_array[1] == 'undefined'
-    //       ? aux_array[0]
-    //       : aux_array[0] + ',' + aux_array[1]
-    //   output = output == '' ? 0 : output
-    //   console.log("output", output);
+    if (input === undefined) return ''
+    input = input.toString().replace(/[^0-9\,]/g, '')
+    if (input !== '') {
+      input = input.toString().replace(/[,]/, '.')
+      input = parseFloat(input)
+      let aux_array = input.toString().split('.')
+      aux_array[0] = aux_array[0]
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+       output =
+        typeof aux_array[1] == 'undefined'
+          ? aux_array[0]
+          : aux_array[0] + ',' + aux_array[1]
+      output = output == '' ? 0 : output
+      console.log("output", output);
    
-    //   return output
-    // } else {
-    //   return ''
-    // }
+      return output
+    } else {
+      return ''
+    }
 
   }
   numberClean(input) {
