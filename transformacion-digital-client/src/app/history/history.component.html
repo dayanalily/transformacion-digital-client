@@ -1,0 +1,52 @@
+<div class="container-fluid title-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="page-title">Historial</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5"></div>
+    
+    <div class="col-12 mt-4">
+      <div class="card p-4 default-card">
+       <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">N°</th>
+      <th scope="col">Nombre destinatario</th>
+      <th scope="col">Rut</th>
+      <th scope="col">Banco</th>
+      <th scope="col">Tipo de Cuenta</th>
+      <th scope="col">Monto</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of listAddressTransfers ; let i = index">
+      <th scope="row">{{i}}</th>
+      <td>{{item.name}}</td>
+      <td>{{item.rut}}</td>
+         <td>
+      {{item.bank === '0000008' ? 'Banco BCIbe' : item.bank === '0000007' ? 'Banco Edwards' : item.bank === '0000006' ? 'Banco Santander' : item.bank === '0000004' ? 'Banco Chile' : item.bank === '0000003' ? 'Banco Estado' : item.bank === '0000002' ? 'Banco Desarrollo' :  item.bank === '0000001' ? 'Banco Ripley' : ''}}
+     </td> 
+     <td>{{item.typeAccount === '0' ? 'Cuenta Corriente' : item.typeAccount === '1' ? 'Cuenta de Ahorros' : item.typeAccount === '2' ? 'Cuenta Vista' : ''}}</td>
+      <td>{{item.amount | currency}}</td>
+   
+    </tr>
+  
+  </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

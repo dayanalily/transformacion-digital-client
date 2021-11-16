@@ -1,0 +1,89 @@
+<div class="container-fluid title-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="page-title">Nuevo Destinatario</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-4">Por favor ingresa los datos del destinatario</div>
+    
+    <div class="col-12 mt-4">
+      <div class="card p-4 default-card">
+       <form  [formGroup]="formAdress">
+          <div class="row">
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="rut">RUT</label>
+                <input type="text"  autocomplete="off" (input)="runFormatting()" (mouseout)="runValidation()" formControlName="rut" required class="form-control" id="rut" />
+            <div *ngIf="rutValid == false && formAdress.value.rut !== ''">
+             
+              Rut invalido
+            </div>
+              </div>
+            </div>
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="nombre">Nombres</label>
+                <input type="text"  autocomplete="off" formControlName="name" class="form-control" id="nombre" />
+              </div>
+            </div>
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email"  autocomplete="off" formControlName="email" class="form-control" id="email" />
+              </div>
+            </div>
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="number"  autocomplete="off" formControlName="phone" class="form-control" id="phone" />
+              </div>
+            </div>
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="bank">Banco</label>
+                <select
+                  class="form-select"
+                  id="select0"
+                  name="select0"
+                  placeholder="Etapa"
+                  (change)="onChangeBank($event.target.value)"
+                >
+                  <option value="" selected></option>
+                  <option *ngFor="let item  of listBansk" value="{{ item.id }}">
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="accountType">Tipo de cuenta</label>
+                <select class="form-select" id="accountType" (change)="onChangeTypeAccount($event.target.value)">
+                  <option value="" selected></option>
+                  <option *ngFor="let itemType  of listTypeAccount" value="{{ itemType.id }}">
+                    {{ itemType.name }}
+                  </option>
+                  
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 pb-3">
+              <div class="form-group">
+                <label for="accountNumber">Número de cuenta</label>
+                <input type="number"  autocomplete="off" formControlName="accountNumber"  class="form-control" id="accountNumber" />
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <button (click)="save()" [disabled]="formAdress.invalid" class="btn btn-primary btn-purple mt-2">Crear destinatario</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

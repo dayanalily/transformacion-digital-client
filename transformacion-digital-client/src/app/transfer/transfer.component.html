@@ -1,0 +1,114 @@
+<div class="container-fluid title-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="page-title">Transferir</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5"></div>
+
+    <div class="col-12 mt-4">
+      <div class="card p-4 default-card">
+        <form [formGroup]="formTransfer">
+          <div class="row">
+            <div class="col-md-12 pb-3">
+              <div class="form-group">
+                <label for="searchAdress"
+                  ><strong>Buscar Destinatario</strong></label
+                >
+                <input
+                  type="text"
+                  formControlName="searchAdress"
+                  autocomplete="off"
+                  (input)="obtenerSearchAdress()"
+                  required
+                  class="form-control"
+                  id="searchAdress"
+                />
+                <small class="mt-2">Ingresa el nombre o Rut (sin guión)</small>
+              </div>
+            </div>
+            <!-- <div class="col-md-10 pb-3 pt-3">
+              <div class="form-group">
+                <label for="nombre"> <strong> Detalles del destinatario  </strong></label>
+              </div>
+            </div> -->
+            <div
+              class="col-md-12 pb-4"
+              *ngFor="let item of listAddressSelect"
+            >
+              <div class="card p-4">
+                <p class="title-detail">Detalles del destinatario</p>
+                <div class="form-group">
+                  <label for="nombre"> <strong> Nombre: </strong></label>
+                  {{ item.name }}
+                </div>
+                <div class="form-group">
+                  <label for="nombre"><strong> Correo: </strong></label>
+                  {{ item.email }}
+                </div>
+                <div class="form-group">
+                  <label for="nombre"> <strong>Banco: </strong></label>
+                  {{
+                    item.bank === "0000008"
+                      ? "Banco BCIbe"
+                      : item.bank === "0000007"
+                      ? "Banco Edwards"
+                      : item.bank === "0000006"
+                      ? "Banco Santander"
+                      : item.bank === "0000004"
+                      ? "Banco Chile"
+                      : item.bank === "0000003"
+                      ? "Banco Estado"
+                      : item.bank === "0000002"
+                      ? "Banco Desarrollo"
+                      : item.bank === "0000001"
+                      ? "Banco Ripley"
+                      : ""
+                  }}
+                </div>
+                <div class="form-group">
+                  <label for="nombre"> <strong>Tipo de Cuenta: </strong></label>
+                  {{
+                    item.typeAccount === "0"
+                      ? "Cuenta Corriente"
+                      : item.typeAccount === "1"
+                      ? "Cuenta de Ahorros"
+                      : item.typeAccount === "2"
+                      ? "Cuenta Vista"
+                      : ""
+                  }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 pb-3" *ngIf="listAddressSelect.length > 0">
+              <div class="form-group">
+                <label for="amount"><strong>Monto a transferir</strong></label>
+                <input
+                  type="number"
+                  formControlName="amount"
+                  class="form-control"
+                  id="amount"
+                />
+              </div>
+            </div>
+            <div class="col-12 text-center">
+              <button
+                (click)="toTransfer()"
+                [disabled]="formTransfer.invalid"
+                class="btn btn-primary btn-purple mt-2"
+              >
+                Transferir
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

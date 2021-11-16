@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px;
+  color: #4c4c4c;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.title-bar {
+  background-color: #55327a;
+  .page-title {
+    padding-top: 16px;
+    font-size: 21px;
+    color: #ffffff;
+    font-weight: 500;
+  }
+}
+
+.card.default-card {
+  background-color: #f5f2fa;
+  border: none;
+}
+
+.btn-purple {
+  border-color: #4f2d7f;
+  background-color: #4f2d7f;
+  transition: all ease 0.3s;
+  font-size: 14px;
+  font-weight: 500;
+  &:hover, &:active, &:focus {
+    border-color: #36195f;
+    background-color: #36195f;
+  }
+  &:disabled {
+    color: #faf8fd;
+    border-color: #a08eb9;
+    background-color: #a08eb9;
+  }
+}
+/* Hide arrows input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
