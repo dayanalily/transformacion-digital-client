@@ -23,6 +23,7 @@ import { CurrencyPipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
     
   ],
   providers: [CurrencyPipe],
