@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HistoryComponent } from './history/history.component';
 import { CurrencyPipe } from '@angular/common';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdressComponent,
     TransferComponent,
-    HistoryComponent
+    HistoryComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,

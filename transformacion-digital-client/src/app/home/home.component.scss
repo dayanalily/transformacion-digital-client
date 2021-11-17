@@ -1,0 +1,31 @@
+.home-title-bar {
+  background-color: #55327a;
+  height: 200px;
+  .page-title {
+    &.yellow {
+      color: #ffb81c;
+      font-size: 32px;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 500;
+  }
+}
+
+.btn-red {
+  border-color: #e22d36;
+  background-color: #e22d36;
+  transition: all ease 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 24px;
+  width: 100%;
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: #bd232b;
+    background-color: #bd232b;
+  }
+}
